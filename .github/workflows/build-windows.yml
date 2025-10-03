@@ -25,7 +25,7 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed --icon='Naval Fleet Management System'/app_icon.ico 'Naval Fleet Management System'/main.py
+       pyinstaller --onefile --windowed --icon="Naval Fleet Management System/app_icon.ico" "Naval Fleet Management System/main.py"
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
