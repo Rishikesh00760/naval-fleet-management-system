@@ -21,11 +21,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pyinstaller rich questionary mysql-connector-python prompt_toolkit keyring passlib bcrypt
+        pip install pyinstaller rich questionary mysql-connector-python prompt_toolkit keyring passlib bcrypt cffi
 
     - name: Build executable
       run: |
-       pyinstaller --onefile --icon="Naval Fleet Management System/icon/icon.ico" --exclude-module=keyring.alt "Naval Fleet Management System/main.py"
+       pyinstaller --onefile --icon="Naval Fleet Management System/icon/icon.ico" --exclude-module=keyring.alt --hidden-import=passlib.hash.bcrypt --hidden-import=bcrypt --hidden-import=cffi "Naval Fleet Management System/main.py"
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
