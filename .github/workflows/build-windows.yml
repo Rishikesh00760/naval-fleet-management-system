@@ -22,7 +22,7 @@ jobs:
       run: pip install --force-reinstall pyinstaller rich questionary mysql-connector-python prompt_toolkit keyring "passlib[bcrypt]" bcrypt==4.0.1 cffi
 
     - name: Build Database Setup Executable
-      run: pyinstaller --onefile --name "NavalFMS_DBSetup" --icon="Naval Fleet Management System/icon/icon.ico" "Naval Fleet Management System/database_setup/navalfms_database_setup.py"
+      run: pyinstaller --onefile --name "NavalFMS_DBSetup" --icon="Naval Fleet Management System/icon/icon.ico" --add-data "Naval Fleet Management System/database_setup/NavalFMS.sql;Naval Fleet Management System/database_setup" "Naval Fleet Management System/database_setup/navalfms_database_setup.py"
 
     - name: Build Main Executable
       run: pyinstaller --onefile --name "NavalFMS" --icon="Naval Fleet Management System/icon/icon.ico" --exclude-module=keyring.alt --hidden-import=passlib.handlers.bcrypt --hidden-import=bcrypt --hidden-import=cffi "Naval Fleet Management System/main.py"
