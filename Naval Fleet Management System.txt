@@ -1,0 +1,58 @@
+Naval Fleet Management System
+
+features:
+
+master password
+changing hosts
+All types of crew members
+all types of ships
+ships
+missions
+missions documents
+logs
+maintenance
+status reports
+CRUD operations
+location reports
+latitude and longitude coordinates
+targets
+enemies
+inventory (missiles, armaments, ammos, aircrafts, etc)
+bases
+docking, undocking
+timelines,
+schedules
+service records
+damages
+attacks
+mission logs
+losses
+kills
+mission control
+mission planner
+crew health
+ships health
+bases health
+encryption and decryption,
+Logistics,
+Supplychain,
+Routes
+
+main menus and sub menus:
+
+1) Crews => Add, Update, Delete, See all, Search, Types, Status
+2) Ships => Add, Update, Delete, See all, Search, Docked, Undocked, Status, Location
+3) Missions => Current, Executed, Planned, Mission Planner, Mission Controller
+4) Documents => Reports, Logs
+5) Inventory => Missiles, Launchers, Aircrafts, Air Defence Units, Radar Stations, Torpedoes, Mines, Vehicles, Fuel, Spare parts
+6) Bases => See All, Forward, Secret, Underwater, Temporary, Mainland, Air bases, Logistics Base, Training Base, Other Status
+7) Routes => Add, Update, Delete, View, Show all
+8) Settings => Master, Hosts, About
+
+Missions => Current, Executed, Planned, Mission Planner => (Plan Mission, Delete Mission, See All Missions, Search Mission), Mission Controller => (Start Mission, End Mission, Abort Mission, Pause Mission, Modify Mission)
+Documents => Reports => (Create, Read, Show All, Search, Delete), Logs => (Add, Read, Read All)
+Inventory => Add, Update, Delete, Search, Show All, Types
+Bases => Add, Update, Delete, Search, Show All, Types
+
+Master => Change Password
+Hosts => Add, Delete, Update, View, See all

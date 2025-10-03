@@ -1,0 +1,12 @@
+import rich third party
+import questionary third party
+import os
+import time
+import cryptography third party
+import sqlite3
+import mysql.connector third party
+import prompt_toolkit third party
+import keyring third party
+import passlib third party
+
+pyinstaller --onefile --icon=icon/icon.ico main.py --exclude-module=keyring.alt
