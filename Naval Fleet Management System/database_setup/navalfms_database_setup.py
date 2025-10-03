@@ -1,0 +1,114 @@
+import mysql.connector as connector
+import getpass
+
+while True:
+    try:
+        host = input("Enter MySQL host: ")
+        password = getpass.getpass("Enter MySQL root password: ")
+
+        if host == "":
+            host = "127.0.0.1"
+        if password == "":
+            password = "root"
+
+        conn = connector.connect(
+            host = host,
+            user = "root",
+            password = password
+        )
+
+        cursor = conn.cursor()
+
+        
+        sql = """
+CREATE DATABASE IF NOT EXISTS NavalFMS;
+USE NavalFMS;
+
+CREATE TABLE IF NOT EXISTS Crew (
+    CrewID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(24) NOT NULL,
+    Gender CHAR(1) NOT NULL,
+    DOB DATE NOT NULL,
+    CrewType VARCHAR(255) NOT NULL,
+    Status VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Ship (
+    ShipID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Class VARCHAR(255) NOT NULL,
+    PenantNumber VARCHAR(10) NOT NULL UNIQUE,
+    ShipType VARCHAR(255) NOT NULL,
+    Status VARCHAR(255) NOT NULL,
+    Location VARCHAR(255) NOT NULL,
+    DockStatus CHAR(1) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Mission (
+    MissionID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(24) NOT NULL,
+    MissionType VARCHAR(24) NOT NULL,
+    Duration VARCHAR(255),
+    StartDate DATE,
+    EndDate DATE,
+    Objective VARCHAR(255) NOT NULL,
+    Status VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Documents (
+    DocumentID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Description VARCHAR(255) NOT NULL,
+    Content TEXT NOT NULL,
+    DocumentType VARCHAR(50) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS Logs (
+    LogID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Description varchar(255) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS Inventory (
+    ItemID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Category VARCHAR(255) NOT NULL,
+    Quantity INT
+);
+
+CREATE TABLE IF NOT EXISTS Bases (
+    BaseID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Location VARCHAR(255),
+    Type VARCHAR(255) NOT NULL,
+    Status VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Routes (
+    RouteID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    StartLocation VARCHAR(255) NOT NULL,
+    Waypoints TEXT,
+    EndLocation VARCHAR(255) NOT NULL,
+    Distance VARCHAR(255) NOT NULL
+);
+"""
+        commands = sql.split(";")
+
+        for command in commands:
+            cursor.execute(command)
+
+        print("Database setup completed successfully.")
+
+        cursor.close()
+        conn.close()
+        
+        break
+    except connector.Error as e:
+        print(f"Could not connect to the server: {e}")
+        if input("Try again? (y/n): ").lower() != 'y':
+            break
+
+input("Press Enter to exit...")
