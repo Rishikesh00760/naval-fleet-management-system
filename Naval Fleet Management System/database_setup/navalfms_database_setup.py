@@ -12,14 +12,13 @@ while True:
             password = "root"
 
         conn = connector.connect(
-            host = host,
-            user = "root",
-            password = password
+            host=host,
+            user="root",
+            password=password
         )
 
         cursor = conn.cursor()
 
-        
         sql = """
 CREATE DATABASE IF NOT EXISTS NavalFMS;
 USE NavalFMS;
@@ -95,17 +94,18 @@ CREATE TABLE IF NOT EXISTS Routes (
     Distance VARCHAR(255) NOT NULL
 );
 """
-        commands = sql.split(";")
 
-        for command in commands:
-            cursor.execute(command)
+        # Run all SQL commands in one execution
+        for result in cursor.execute(sql, multi=True):
+            if result.with_rows:
+                result.fetchall()
 
         print("Database setup completed successfully.")
 
         cursor.close()
         conn.close()
-        
         break
+
     except connector.Error as e:
         print(f"Could not connect to the server: {e}")
         if input("Try again? (y/n): ").lower() != 'y':
