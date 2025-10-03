@@ -25,7 +25,7 @@ jobs:
 
     - name: Build executable
       run: |
-       pyinstaller --onefile --windowed --icon="Naval Fleet Management System/icon/icon.ico" "Naval Fleet Management System/main.py"
+       pyinstaller --onefile --icon="Naval Fleet Management System/icon/icon.ico" "Naval Fleet Management System/main.py --exclude-module=keyring.alt"
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
