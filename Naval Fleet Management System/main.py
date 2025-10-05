@@ -372,7 +372,7 @@ if db is not None and db.is_connected():
                         for member in crew_members:
                             table.add_row(str(member[0]), member[1], member[2], str(member[3]), member[4])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif cchoice == "Search Crew Member":
                     clear()
                     crew_members = db.crew.fetchall()
@@ -433,7 +433,7 @@ if db is not None and db.is_connected():
                             for member in results:
                                 table.add_row(str(member[0]), member[1], member[2], str(member[3]), member[4])
                             console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif cchoice == "Crew Types":
                     clear()
                     types = db.crew.availabletypes()
@@ -446,7 +446,7 @@ if db is not None and db.is_connected():
                         for t in types:
                             table.add_row(t[0])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif cchoice == "Crew Status":
                     clear()
                     stats = db.crew.fetchstats()
@@ -461,7 +461,7 @@ if db is not None and db.is_connected():
                         for s in stats:
                             table.add_row(str(s[0]), s[1], s[2])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
         elif choice == "2":
             while True:
                 clear()
@@ -627,7 +627,7 @@ if db is not None and db.is_connected():
                         for ship in ships:
                             table.add_row(str(ship[0]), ship[1], ship[2], ship[3], ship[4])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Search Ship":
                     clear()
                     ships = db.ship.fetchall()
@@ -685,7 +685,7 @@ if db is not None and db.is_connected():
                             for ship in results:
                                 table.add_row(str(ship[0]), ship[1], ship[2], ship[3], ship[4])
                             console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Ship Types":
                     clear()
                     types = db.ship.availabletypes()
@@ -698,7 +698,7 @@ if db is not None and db.is_connected():
                         for t in types:
                             table.add_row(t[0])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Ship Classes":
                     clear()
                     classes = db.ship.availableclasses()
@@ -711,7 +711,7 @@ if db is not None and db.is_connected():
                         for c in classes:
                             table.add_row(c[0])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Ship Status":
                     clear()
                     stats = db.ship.fetchstats()
@@ -727,7 +727,7 @@ if db is not None and db.is_connected():
                         for s in stats:
                             table.add_row(str(s[0]), s[1], s[2], s[3])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Ship Locations":
                     clear()
                     locs = db.ship.fetchlocation()
@@ -743,7 +743,7 @@ if db is not None and db.is_connected():
                         for l in locs:
                             table.add_row(str(l[0]), l[1], l[2], l[3])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Docked Ships":
                     clear()
                     docked = db.ship.fetchdocked()
@@ -758,7 +758,7 @@ if db is not None and db.is_connected():
                         for d in docked:
                             table.add_row(str(d[0]), d[1], d[2])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Undocked Ships":
                     clear()
                     undocked = db.ship.fetchundocked()
@@ -773,7 +773,7 @@ if db is not None and db.is_connected():
                         for u in undocked:
                             table.add_row(str(u[0]), u[1], u[2])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
         elif choice == "3":
              while True:
                 clear()
@@ -810,7 +810,7 @@ if db is not None and db.is_connected():
                         for m in current:
                             table.add_row(str(m[0]), m[1], m[2], m[3], str(m[4]), str(m[5]), str(m[6]), m[7])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif mchoice == "Executed Missions":
                     clear()
                     executed = db.mission.planner.fetchexecuted()
@@ -830,7 +830,7 @@ if db is not None and db.is_connected():
                         for m in executed:
                             table.add_row(str(m[0]), m[1], m[2], m[3], str(m[4]), str(m[5]), str(m[6]), m[7])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif mchoice == "Planned Missions":
                     clear()
                     planned = db.mission.planner.fetchplanned()
@@ -850,7 +850,7 @@ if db is not None and db.is_connected():
                         for m in planned:
                             table.add_row(str(m[0]), m[1], m[2], m[3], str(m[4]), str(m[5]), str(m[6]), m[7])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif mchoice == "Mission Planner":
                     while True:
                         clear()
@@ -962,7 +962,7 @@ if db is not None and db.is_connected():
                                 for m in missions:
                                     table.add_row(str(m[0]), m[1], m[2], m[3], str(m[4]), str(m[5]), str(m[6]), m[7])
                                 console.print(table)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif mpchoice == "Search Mission":
                             clear()
                             missions = db.mission.planner.fetchall()
@@ -1023,7 +1023,7 @@ if db is not None and db.is_connected():
                                     for m in results:
                                         table.add_row(str(m[0]), m[1], m[2], m[3], str(m[4]), str(m[5]), str(m[6]), m[7])
                                     console.print(table)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                 elif mchoice == "Mission Controller":
                     while True:
                         clear()
@@ -1083,12 +1083,13 @@ if db is not None and db.is_connected():
                         elif mcchoice == "End Mission":
                             clear()
                             current = db.mission.planner.fetchongoing()
+                            mission_list = db.mission.planner.fetchall()
                             if not current:
                                 console.print("[yellow]No ongoing missions available to end.[/yellow]")
                                 sleep()
                                 continue
                             mid = questionary.text("Enter mission ID to end:").ask()
-                            if not mid or not mid.isdigit() or int(mid) < 1 or int(mid) > len(current):
+                            if not mid or not mid.isdigit() or int(mid) < 1 or mid not in [str(mission[0]) for mission in mission_list]:
                                 console.print("[red]Invalid mission ID. Please try again.[/red]")
                                 sleep()
                                 continue
@@ -1109,12 +1110,13 @@ if db is not None and db.is_connected():
                         elif mcchoice == "Abort Mission":
                             clear()
                             current = db.mission.planner.fetchongoing()
+                            mission_list = db.mission.planner.fetchall()
                             if not current:
                                 console.print("[yellow]No ongoing missions available to abort.[/yellow]")
                                 sleep()
                                 continue
                             mid = questionary.text("Enter mission ID to abort:").ask()
-                            if not mid or not mid.isdigit() or int(mid) < 1 or int(mid) > len(current):
+                            if not mid or not mid.isdigit() or int(mid) < 1 or mid not in [str(mission[0]) for mission in mission_list]:
                                 console.print("[red]Invalid mission ID. Please try again.[/red]")
                                 sleep()
                                 continue
@@ -1135,12 +1137,13 @@ if db is not None and db.is_connected():
                         elif mcchoice == "Pause Mission":
                             clear()
                             current = db.mission.planner.fetchongoing()
+                            mission_list = db.mission.planner.fetchall()
                             if not current:
                                 console.print("[yellow]No ongoing missions available to pause.[/yellow]")
                                 sleep()
                                 continue
                             mid = questionary.text("Enter mission ID to pause:").ask()
-                            if not mid or not mid.isdigit() or int(mid) < 1 or int(mid) > len(current):
+                            if not mid or not mid.isdigit() or int(mid) < 1 or mid not in [str(mission[0]) for mission in mission_list]:
                                 console.print("[red]Invalid mission ID. Please try again.[/red]")
                                 sleep()
                                 continue
@@ -1156,12 +1159,13 @@ if db is not None and db.is_connected():
                         elif mcchoice == "Modify Mission":
                             clear()
                             missions = db.mission.planner.fetchall()
+                            mission_list = db.mission.planner.fetchall()
                             if not missions:
                                 console.print("[yellow]No missions found to modify.[/yellow]")
                                 sleep()
                                 continue
                             mid = questionary.text("Enter mission ID to modify:").ask()
-                            if not mid or not mid.isdigit() or int(mid) < 1 or int(mid) > len(missions):
+                            if not mid or not mid.isdigit() or int(mid) < 1 or mid not in [str(mission[0]) for mission in mission_list]:
                                 console.print("[red]Invalid mission ID. Please try again.[/red]")
                                 sleep()
                                 continue
@@ -1269,7 +1273,7 @@ if db is not None and db.is_connected():
                                 r = report[0]
                                 panel = Panel.fit(f"[bold blue]Title:[/bold blue] {r[1]}\n[bold blue]Description:[/bold blue] {r[2]}\n[bold blue]Content:[/bold blue]\n{r[3]}\n\n[bold magenta]Document Type:[/bold magenta] {r[4]}\n[bold magenta]Created At:[/bold magenta] {r[5]}", title=f"Report ID: {r[0]}", border_style="green")
                                 console.print(panel)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif rchoice == "Show All Reports":
                             clear()
                             try:
@@ -1291,7 +1295,7 @@ if db is not None and db.is_connected():
                                 for r in reports:
                                     table.add_row(str(r[0]), r[1], r[2], r[3], str(r[4]))
                                 console.print(table)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif rchoice == "Search Reports":
                             clear()
                             search_by = questionary.select(
@@ -1333,7 +1337,7 @@ if db is not None and db.is_connected():
                                 for r in results:
                                     table.add_row(str(r[0]), r[1], r[2], r[3], str(r[4]))
                                 console.print(table)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif rchoice == "Delete Report":
                             clear()
                             reports = db.documents.reports.show_all()
@@ -1440,9 +1444,9 @@ if db is not None and db.is_connected():
                                 console.print("[yellow]No log entry found with the given ID.[/yellow]")
                             else:
                                 l = log[0]
-                                panel = Panel.fit(f"[bold blue]Title:[/bold blue] {l[1]}\n[bold blue]Description:[/bold blue]\n{l[2]}\n\n[bold magenta]Created At:[/bold megenta] {l[3]}", title=f"Log ID: {l[0]}", border_style="green")
+                                panel = Panel.fit(f"[bold blue]Title:[/bold blue] {l[1]}\n[bold blue]Description:[/bold blue]\n{l[2]}\n\n[bold magenta]Created At:[/bold magenta] {l[3]}", title=f"Log ID: {l[0]}", border_style="green")
                                 console.print(panel)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif lchoice == "Read All Logs":
                             clear()
                             try:
@@ -1457,7 +1461,7 @@ if db is not None and db.is_connected():
                                 console.print("[blue]Loading log entries...[/blue]")
                                 panel = Panel.fit("\n".join(f"[bold magenta]{l[0]}[/bold magenta] [blue]{l[1]}[/blue] {l[2]} [bold magenta]{l[3]}[/bold magenta]" for l in logs), title="All Log Entries", border_style="green")
                                 console.print(panel)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
         elif choice == "5":
             while True:
                 clear()
@@ -1620,7 +1624,7 @@ if db is not None and db.is_connected():
                         for i in items:
                             table.add_row(str(i[0]), i[1], i[2], str(i[3]))
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif invchoice == "Search Items":
                     clear()
                     search_by = questionary.select(
@@ -1660,7 +1664,7 @@ if db is not None and db.is_connected():
                         for i in results:
                             table.add_row(str(i[0]), i[1], i[2], str(i[3]))
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif invchoice == "See all Types":
                     clear()
                     try:
@@ -1675,7 +1679,7 @@ if db is not None and db.is_connected():
                         console.print("[blue]Loading item categories...[/blue]")
                         panel = Panel.fit("\n".join(f"[bold magenta]{cat[0]}[/bold magenta]" for cat in categories), title="Item Categories", border_style="green")
                         console.print(panel)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
         elif choice == "6":
             while True:
                 clear()
@@ -1841,7 +1845,7 @@ if db is not None and db.is_connected():
                             loc = b[2] if b[2] else "N/A"
                             table.add_row(str(b[0]), b[1], loc, b[3], b[4])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif bchoice == "Search Bases":
                     clear()
                     search_by = questionary.select(
@@ -1892,7 +1896,7 @@ if db is not None and db.is_connected():
                             loc = b[2] if b[2] else "N/A"
                             table.add_row(str(b[0]), b[1], loc, b[3], b[4])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif bchoice == "See all Types":
                     clear()
                     try:
@@ -1907,7 +1911,7 @@ if db is not None and db.is_connected():
                         console.print("[blue]Loading base types...[/blue]")
                         panel = Panel.fit("\n".join(f"[bold magenta]{t[0]}[/bold magenta]" for t in types), title="Base Types", border_style="green")
                         console.print(panel)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif bchoice == "See all Status":
                     clear()
                     try:
@@ -1927,7 +1931,7 @@ if db is not None and db.is_connected():
                         for s in statuses:
                             table.add_row(str(s[0]), s[1], s[2])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
         elif choice == "7":
             while True:
                 clear()
@@ -2078,7 +2082,7 @@ if db is not None and db.is_connected():
                             wpts = r[4] if r[4] else "N/A"
                             table.add_row(str(r[0]), r[1], r[2], r[3], wpts, r[5])
                         console.print(table)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif rchoice == "View Route":
                     clear()
                     routes = db.routes.fetch_all()
@@ -2106,7 +2110,7 @@ if db is not None and db.is_connected():
                     wpts = r[3] if r[3] else "N/A"
                     panel = Panel.fit(f"[bold magenta]Name:[/bold magenta] {r[1]}\n[bold green]Origin:[/bold green] {r[2]}\n[bold yellow]Destination:[/bold yellow] {r[4]}\n[bold bright_blue]Waypoints:[/bold bright_blue] {wpts}\n[bold bright_green]Distance:[/bold bright_green] {r[5]}", title=f"Route ID {r[0]} Details", border_style="cyan")
                     console.print(panel)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
         elif choice == "8":
             while True:
                 clear()
@@ -2272,7 +2276,7 @@ if db is not None and db.is_connected():
                             password = hosts.getpassword(hname)
                             panel = Panel.fit(f"[bold magenta]Hostname:[/bold magenta] {host_details[0][1]}\n[bold green]Password:[/bold green] {password}", title=f"Host ID {host_details[0][0]} Details", border_style="cyan")
                             console.print(panel)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif hchoice == "Show All Hosts":
                             clear()
                             host_list = hosts.gethosts()
@@ -2286,7 +2290,7 @@ if db is not None and db.is_connected():
                             for h in host_list:
                                 table.add_row(str(h[0]), h[1])
                             console.print(table)
-                            input("Press Enter to continue...")
+                            questionary.text("Press Enter to continue...").ask()
                         elif hchoice == "Change Host":
                             clear()
                             host_list = hosts.gethosts()
@@ -2335,7 +2339,7 @@ text-based environment to keep naval operations running smoothly.
 """
                     panel = Panel.fit(about, title="Naval Fleet Management System", border_style="green")
                     console.print(panel)
-                    input("Press Enter to continue...")
+                    questionary.text("Press Enter to continue...").ask()
                 elif schoice == "Back to Main Menu":
                     clear()
                     break
